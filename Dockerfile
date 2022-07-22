@@ -2,15 +2,15 @@ from jenkins/jenkins:lts-alpine
 USER root
 
 # Pipeline
-RUN /usr/local/bin/jenkins-plugins-cli \ --plugins workflow-aggregator && \
-    /usr/local/bin/jenkins-plugins-cli \ --plugins github && \
-    /usr/local/bin/jenkins-plugins-cli \ --plugins ws-cleanup && \
-    /usr/local/bin/jenkins-plugins-cli \ --plugins greenballs && \
-    /usr/local/bin/jenkins-plugins-cli \ --plugins simple-theme-plugin && \
-    /usr/local/bin/jenkins-plugins-cli \ --plugins kubernetes && \
-    /usr/local/bin/jenkins-plugins-cli \ --plugins docker-workflow && \
-    /usr/local/bin/jenkins-plugins-cli \ --plugins kubernetes-cli && \
-    /usr/local/bin/jenkins-plugins-cli \ --plugins github-branch-source
+RUN jenkins-plugins-cli \ --plugins workflow-aggregator && \
+    jenkins-plugins-cli \ --plugins github && \
+    jenkins-plugins-cli \ --plugins ws-cleanup && \
+    jenkins-plugins-cli \ --plugins greenballs && \
+    jenkins-plugins-cli \ --plugins simple-theme-plugin && \
+    jenkins-plugins-cli \ --plugins kubernetes && \
+    jenkins-plugins-cli \ --plugins docker-workflow && \
+    jenkins-plugins-cli \ --plugins kubernetes-cli && \
+    jenkins-plugins-cli \ --plugins github-branch-source
 
 # install Maven, Java, Docker, AWS
 RUN apk add --no-cache maven \
